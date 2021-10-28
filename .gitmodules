@@ -7,12 +7,6 @@
 [submodule "external/libvorbis"]
 	path = external/libvorbis
 	url = https://github.com/xiph/vorbis.git
-[submodule "external/libz"]
-	path = external/libz
-	url = https://github.com/madler/zlib.git
 [submodule "external/zlib"]
 	path = external/zlib
-	url = https://github.com/zlib-ng/zlib-ng.git
-[submodule "external/preview/zlib"]
-	path = external/preview/zlib
 	url = https://github.com/zlib-ng/zlib-ng.git
