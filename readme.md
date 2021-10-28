@@ -10,7 +10,7 @@ This is a CMake build system project (unofficial) of [Touhou Danmakufu ph3sx](ht
 ```batch
 git clone --recursive https://github.com/Demonese/Touhou-Danmakufu-ph3sx-cmake.git
 ```
-2. using CMake to generate project files 用CMake生成项目文件
+2. using CMake to generate project files
 ```batch
 cd Touhou-Danmakufu-ph3sx-cmake
 mkdir build
