@@ -20,6 +20,13 @@ function(dnh_common_project_config target)
         )
     endif()
 endfunction()
+function(dnh_common_copy_output_file target file_name)
+    add_custom_command(TARGET ${target} POST_BUILD
+        COMMAND cmake -E make_directory ${CMAKE_SOURCE_DIR}/bin
+        COMMAND cmake -E rm -f ${CMAKE_SOURCE_DIR}/bin/${file_name}
+        COMMAND cmake -E copy $<TARGET_FILE:${target}> ${CMAKE_SOURCE_DIR}/bin/${file_name}
+    )
+endfunction()
 
 # DnhConfig
 
@@ -104,6 +111,8 @@ target_link_libraries(DnhConfig PUBLIC
     d3dxof
     d3dx9
 )
+
+dnh_common_copy_output_file(DnhConfig config_ph3sx.exe)
 
 # DnhExecutor
 
@@ -281,6 +290,8 @@ target_link_libraries(DnhExecutor PUBLIC
     d3dxof
     d3dx9
 )
+
+dnh_common_copy_output_file(DnhConfig th_dnh_ph3sx.exe)
 
 # FileArchiver
 
