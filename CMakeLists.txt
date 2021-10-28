@@ -100,6 +100,7 @@ target_link_libraries(DnhConfig PUBLIC
     vorbis
     vorbisfile
     dxerr
+    legacy_stdio_definitions.lib
     d3dxof
     d3dx9
 )
@@ -276,6 +277,7 @@ target_link_libraries(DnhExecutor PUBLIC
     vorbis
     vorbisfile
     dxerr
+    legacy_stdio_definitions.lib
     d3dxof
     d3dx9
 )
@@ -343,6 +345,7 @@ target_link_libraries(FileArchiver PUBLIC
     vorbis
     vorbisfile
     dxerr
+    legacy_stdio_definitions.lib
     d3dxof
     d3dx9
 )
