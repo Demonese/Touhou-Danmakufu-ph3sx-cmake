@@ -5,14 +5,14 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 # zlib
 
-add_subdirectory(external/libz)
+add_subdirectory(external/zlib)
 set_target_properties(zlibstatic PROPERTIES
     DEBUG_POSTFIX ""
 )
-set_target_properties(example PROPERTIES FOLDER external/libz)
-set_target_properties(minigzip PROPERTIES FOLDER external/libz)
-set_target_properties(zlib PROPERTIES FOLDER external/libz)
-set_target_properties(zlibstatic PROPERTIES FOLDER external/libz)
+set_target_properties(example PROPERTIES FOLDER external/zlib)
+set_target_properties(minigzip PROPERTIES FOLDER external/zlib)
+set_target_properties(zlib PROPERTIES FOLDER external/zlib)
+set_target_properties(zlibstatic PROPERTIES FOLDER external/zlib)
 
 # xiph group
 
@@ -88,15 +88,6 @@ add_library(external_helper STATIC
 target_include_directories(external_helper PUBLIC
     external
     ${CMAKE_BINARY_DIR}/external
-    ${CMAKE_BINARY_DIR}/external/libz
-)
-target_link_libraries(external_helper PUBLIC
-    zlibstatic
-)
-
-add_custom_command(TARGET external_helper PRE_BUILD
-    COMMAND cmake -E make_directory ${CMAKE_BINARY_DIR}/external/zlib
-    COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/external/libz/zlib.h ${CMAKE_BINARY_DIR}/external/zlib
 )
 
 set_target_properties(external_helper PROPERTIES FOLDER external)
