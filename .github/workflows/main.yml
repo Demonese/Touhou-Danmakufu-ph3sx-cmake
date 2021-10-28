@@ -38,3 +38,18 @@ jobs:
       - name: MSVC build
         run: |
           cmake --build build --config Release
+      
+      - name: ZIP binary files
+      - uses: papeloto/action-zip@v1
+        with:
+          files: bin_th_dnh/ bin_ext/
+          dest: bin.zip
+      
+      - name: GitHub release
+      - uses: marvinpinto/action-automatic-releases@latest
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
+          files: |
+            *.zip
+        
