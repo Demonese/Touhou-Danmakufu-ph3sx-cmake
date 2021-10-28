@@ -88,6 +88,7 @@ add_library(external_helper STATIC
 target_include_directories(external_helper PUBLIC
     external
     ${CMAKE_BINARY_DIR}/external
+    ${CMAKE_BINARY_DIR}/external/zlib
 )
 
 set_target_properties(external_helper PROPERTIES FOLDER external)
