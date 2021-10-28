@@ -12,7 +12,7 @@
 	url = https://github.com/madler/zlib.git
 [submodule "external/zlib"]
 	path = external/zlib
-	url = https://github.com/madler/zlib.git
+	url = https://github.com/zlib-ng/zlib-ng.git
 [submodule "external/preview/zlib"]
 	path = external/preview/zlib
 	url = https://github.com/zlib-ng/zlib-ng.git
