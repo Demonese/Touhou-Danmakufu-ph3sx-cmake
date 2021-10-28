@@ -293,6 +293,12 @@ target_link_libraries(DnhExecutor PUBLIC
 
 dnh_common_copy_output_file(DnhExecutor bin_th_dnh th_dnh_ph3sx.exe)
 
+add_custom_command(TARGET DnhExecutor POST_BUILD
+    COMMAND cmake -E make_directory ${CMAKE_SOURCE_DIR}/bin_th_dnh
+    COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/origin/bin_th_dnh/license.txt ${CMAKE_SOURCE_DIR}/bin_th_dnh
+    COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/origin/bin_th_dnh/readme.txt ${CMAKE_SOURCE_DIR}/bin_th_dnh
+)
+
 # FileArchiver
 
 set(GcLib_source_FileArchiver
@@ -362,3 +368,8 @@ target_link_libraries(FileArchiver PUBLIC
 )
 
 dnh_common_copy_output_file(FileArchiver bin_ext FileArchiver.exe)
+
+add_custom_command(TARGET FileArchiver POST_BUILD
+    COMMAND cmake -E make_directory ${CMAKE_SOURCE_DIR}/bin_ext
+    COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/origin/bin_ext/FileArchiver_readme.txt ${CMAKE_SOURCE_DIR}/bin_ext
+)
