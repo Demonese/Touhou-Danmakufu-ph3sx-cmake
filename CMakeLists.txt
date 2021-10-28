@@ -102,7 +102,6 @@ target_sources(DnhConfig PRIVATE
 )
 target_link_libraries(DnhConfig PUBLIC
     external_helper
-    zlibstatic
     ogg
     vorbis
     vorbisfile
@@ -281,7 +280,6 @@ target_sources(DnhExecutor PRIVATE
 )
 target_link_libraries(DnhExecutor PUBLIC
     external_helper
-    zlibstatic
     ogg
     vorbis
     vorbisfile
@@ -357,7 +355,6 @@ target_sources(FileArchiver PRIVATE
 )
 target_link_libraries(FileArchiver PUBLIC
     external_helper
-    zlibstatic
     ogg
     vorbis
     vorbisfile

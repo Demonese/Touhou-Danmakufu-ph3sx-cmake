@@ -5,17 +5,17 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 # zlib
 
-add_subdirectory(external/zlib)
-set_target_properties(zlibstatic PROPERTIES
+set(ZLIB_COMPAT ON)
+set(ZLIB_ENABLE_TESTS OFF)
+add_subdirectory(external/preview/zlib)
+set_target_properties(zlib PROPERTIES
     DEBUG_POSTFIX ""
 )
-set_target_properties(example PROPERTIES FOLDER external/zlib)
-set_target_properties(minigzip PROPERTIES FOLDER external/zlib)
 set_target_properties(zlib PROPERTIES FOLDER external/zlib)
-set_target_properties(zlibstatic PROPERTIES FOLDER external/zlib)
 
 # xiph group
 
+set(BUILD_TESTING OFF)
 add_subdirectory(external/libogg)
 add_subdirectory(external/libvorbis)
 set_target_properties(ogg PROPERTIES
@@ -27,13 +27,10 @@ set_target_properties(vorbis PROPERTIES
 set_target_properties(vorbisfile PROPERTIES
     OUTPUT_NAME "vorbisfile_static"
 )
-set_target_properties(test_bitwise PROPERTIES FOLDER external/libogg)
-set_target_properties(test_framing PROPERTIES FOLDER external/libogg)
 set_target_properties(ogg PROPERTIES FOLDER external/libogg)
 set_target_properties(vorbis PROPERTIES FOLDER external/libvorbis)
 set_target_properties(vorbisenc PROPERTIES FOLDER external/libvorbis)
 set_target_properties(vorbisfile PROPERTIES FOLDER external/libvorbis)
-set_target_properties(vorbis_test PROPERTIES FOLDER external/libvorbis)
 
 # DXSDK
 
@@ -86,9 +83,14 @@ add_library(external_helper STATIC
     external/cmake_empty_helper.cpp
 )
 target_include_directories(external_helper PUBLIC
+    ${CMAKE_BINARY_DIR}/external/preview
+    ${CMAKE_BINARY_DIR}/external/preview/zlib
+    external/preview
+    external/preview/zlib
     external
-    ${CMAKE_BINARY_DIR}/external
-    ${CMAKE_BINARY_DIR}/external/zlib
+)
+target_link_libraries(external_helper PUBLIC
+    zlib
 )
 
 set_target_properties(external_helper PROPERTIES FOLDER external)
