@@ -1,0 +1,12 @@
+[submodule "origin"]
+	path = origin
+	url = https://github.com/Natashi/Touhou-Danmakufu-ph3sx-2.git
+[submodule "external/libogg"]
+	path = external/libogg
+	url = https://github.com/xiph/ogg.git
+[submodule "external/libvorbis"]
+	path = external/libvorbis
+	url = https://github.com/xiph/vorbis.git
+[submodule "external/libz"]
+	path = external/libz
+	url = https://github.com/madler/zlib.git
