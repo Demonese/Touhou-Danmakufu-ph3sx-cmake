@@ -28,5 +28,5 @@ jobs:
       # Runs a single command using the runners shell
       - name: Test ENV
         run: |
-          cd C:\Program Files (x86)\Windows Kits\10\Include
+          cd "C:\Program Files (x86)\Windows Kits\10\Include"
           dir
