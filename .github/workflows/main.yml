@@ -40,7 +40,7 @@ jobs:
           cmake --build build --config Release
       
       - name: ZIP binary files
-        uses: papeloto/action-zip@v1
+        uses: vimtor/action-zip@v1
         with:
           files: bin_th_dnh/ bin_ext/
           dest: bin.zip
