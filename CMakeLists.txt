@@ -283,6 +283,7 @@ target_link_libraries(DnhExecutor PUBLIC
     ogg
     vorbis
     vorbisfile
+    kissfft
     dxerr
     legacy_stdio_definitions.lib
     d3dxof

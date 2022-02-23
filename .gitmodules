@@ -10,3 +10,6 @@
 [submodule "external/zlib"]
 	path = external/zlib
 	url = https://github.com/zlib-ng/zlib-ng.git
+[submodule "external/kissfft"]
+	path = external/kissfft
+	url = https://github.com/mborgerding/kissfft.git

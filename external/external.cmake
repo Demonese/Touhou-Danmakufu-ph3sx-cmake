@@ -78,6 +78,14 @@ else()
     )
 endif()
 
+# kissfft
+
+option(KISSFFT_PKGCONFIG "Build pkg-config files" OFF)
+option(KISSFFT_STATIC "Build kissfft as static (ON) or shared library (OFF)" ON)
+option(KISSFFT_TEST "Build kissfft tests" OFF)
+option(KISSFFT_TOOLS "Build kissfft command-line tools" OFF)
+add_subdirectory(external/kissfft)
+
 # helper
 
 add_library(external_helper STATIC
