@@ -17,10 +17,10 @@ set_target_properties(vorbis PROPERTIES
 set_target_properties(vorbisfile PROPERTIES
     OUTPUT_NAME "vorbisfile_static"
 )
-set_target_properties(ogg PROPERTIES FOLDER external/libogg)
-set_target_properties(vorbis PROPERTIES FOLDER external/libvorbis)
-set_target_properties(vorbisenc PROPERTIES FOLDER external/libvorbis)
-set_target_properties(vorbisfile PROPERTIES FOLDER external/libvorbis)
+set_target_properties(ogg PROPERTIES FOLDER external)
+set_target_properties(vorbis PROPERTIES FOLDER external)
+set_target_properties(vorbisenc PROPERTIES FOLDER external)
+set_target_properties(vorbisfile PROPERTIES FOLDER external)
 
 # zlib
 # warning: please keep zlib-ng next to libogg & libvorbis
@@ -32,7 +32,7 @@ add_subdirectory(external/zlib)
 set_target_properties(zlib PROPERTIES
     DEBUG_POSTFIX ""
 )
-set_target_properties(zlib PROPERTIES FOLDER external/zlib)
+set_target_properties(zlib PROPERTIES FOLDER external)
 
 # DXSDK
 
@@ -85,6 +85,7 @@ option(KISSFFT_STATIC "Build kissfft as static (ON) or shared library (OFF)" ON)
 option(KISSFFT_TEST "Build kissfft tests" OFF)
 option(KISSFFT_TOOLS "Build kissfft command-line tools" OFF)
 add_subdirectory(external/kissfft)
+set_target_properties(kissfft PROPERTIES FOLDER external)
 
 # helper
 
