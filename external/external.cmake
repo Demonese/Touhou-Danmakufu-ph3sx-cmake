@@ -26,8 +26,16 @@ set_target_properties(vorbisfile PROPERTIES FOLDER external)
 # warning: please keep zlib-ng next to libogg & libvorbis
 #          there is a bug here, the behavior of BUILD_SHARED_LIBS is inconsistent
 
-set(ZLIB_COMPAT ON)
-set(ZLIB_ENABLE_TESTS OFF)
+option(ZLIB_COMPAT "Compile with zlib compatible API" ON)
+option(ZLIB_ENABLE_TESTS "Build test binaries" OFF)
+option(WITH_AVX2 "Build with AVX2" OFF)
+option(WITH_AVX512 "Build with AVX512" OFF)
+option(WITH_AVX512VNNI "Build with AVX512 VNNI extensions" OFF)
+option(WITH_SSSE3 "Build with SSSE3" OFF)
+option(WITH_SSE41 "Build with SSE41" OFF)
+option(WITH_SSE42 "Build with SSE42" OFF)
+option(WITH_PCLMULQDQ "Build with PCLMULQDQ" OFF)
+option(WITH_VPCLMULQDQ "Build with VPCLMULQDQ" OFF)
 add_subdirectory(external/zlib)
 set_target_properties(zlib PROPERTIES
     DEBUG_POSTFIX ""
