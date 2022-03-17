@@ -22,6 +22,13 @@ function(dnh_common_project_config target)
         )
     endif()
 endfunction()
+function(dnh_common_copy_dll_file related_target dir_name dll_target)
+    add_custom_command(TARGET ${related_target} POST_BUILD
+        COMMAND cmake -E make_directory ${CMAKE_SOURCE_DIR}/${dir_name}
+        COMMAND cmake -E rm -f ${CMAKE_SOURCE_DIR}/${dir_name}/$<TARGET_FILE_NAME:${dll_target}>
+        COMMAND cmake -E copy $<TARGET_FILE:${dll_target}> ${CMAKE_SOURCE_DIR}/${dir_name}/$<TARGET_FILE_NAME:${dll_target}>
+    )
+endfunction()
 function(dnh_common_copy_output_file target dir_name file_name)
     add_custom_command(TARGET ${target} POST_BUILD
         COMMAND cmake -E make_directory ${CMAKE_SOURCE_DIR}/${dir_name}
@@ -102,11 +109,15 @@ target_link_libraries(DnhExecutor PUBLIC
 )
 
 dnh_common_copy_output_file(DnhExecutor bin_th_dnh th_dnh_ph3sx.exe)
+dnh_common_copy_dll_file(DnhExecutor bin_th_dnh d3dx9)
+dnh_common_copy_dll_file(DnhExecutor bin_th_dnh d3dcompiler_43)
 
 add_custom_command(TARGET DnhExecutor POST_BUILD
     COMMAND cmake -E make_directory ${CMAKE_SOURCE_DIR}/bin_th_dnh
     COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/origin/bin_th_dnh/license.txt ${CMAKE_SOURCE_DIR}/bin_th_dnh
     COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/origin/bin_th_dnh/readme.txt ${CMAKE_SOURCE_DIR}/bin_th_dnh
+    COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/external/dxsdk.d3dx/LICENSE.txt ${CMAKE_SOURCE_DIR}/bin_th_dnh/DXSDK.D3DX.LICENSE.txt
+    COMMAND cmake -E copy ${CMAKE_SOURCE_DIR}/external/dxsdk.d3dx/NOTICE.md ${CMAKE_SOURCE_DIR}/bin_th_dnh/DXSDK.D3DX.NOTICE.md
 )
 
 # FileArchiver
