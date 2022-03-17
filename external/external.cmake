@@ -42,47 +42,71 @@ set_target_properties(zlib PROPERTIES
 )
 set_target_properties(zlib PROPERTIES FOLDER external)
 
-# DXSDK
+# d3dx9
 
-add_library(d3dx9 STATIC IMPORTED GLOBAL)
+add_library(d3dx9 SHARED IMPORTED GLOBAL)
 target_include_directories(d3dx9 INTERFACE
-    external/dxsdk/include
+    external/dxsdk.d3dx/include
 )
 if(CMAKE_SIZEOF_VOID_P EQUAL 8)
     set_target_properties(d3dx9 PROPERTIES
-        IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/external/dxsdk/lib/x64/d3dx9.lib
+        IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/external/dxsdk.d3dx/bin/x64/D3DX9_43.dll
+        IMPORTED_IMPLIB   ${CMAKE_SOURCE_DIR}/external/dxsdk.d3dx/lib/x64/d3dx9.lib
     )
 else()
     set_target_properties(d3dx9 PROPERTIES
-        IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/external/dxsdk/lib/d3dx9.lib
+        IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/external/dxsdk.d3dx/bin/D3DX9_43.dll
+        IMPORTED_IMPLIB   ${CMAKE_SOURCE_DIR}/external/dxsdk.d3dx/lib/d3dx9.lib
     )
 endif()
+
+# d3dcompiler_43
+
+add_library(d3dcompiler_43 SHARED IMPORTED GLOBAL)
+target_include_directories(d3dcompiler_43 INTERFACE
+    external/dxsdk.d3dx/include
+)
+if(CMAKE_SIZEOF_VOID_P EQUAL 8)
+    set_target_properties(d3dcompiler_43 PROPERTIES
+        IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/external/dxsdk.d3dx/bin/x64/D3DCompiler_43.dll
+        IMPORTED_IMPLIB   ${CMAKE_SOURCE_DIR}/external/dxsdk.d3dx/lib/x64/d3dx9.lib
+    )
+else()
+    set_target_properties(d3dcompiler_43 PROPERTIES
+        IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/external/dxsdk.d3dx/bin/D3DCompiler_43.dll
+        IMPORTED_IMPLIB   ${CMAKE_SOURCE_DIR}/external/dxsdk.d3dx/lib/d3dx9.lib
+    )
+endif()
+
+# d3dxof - TODO: should delete it
 
 add_library(d3dxof STATIC IMPORTED GLOBAL)
 target_include_directories(d3dxof INTERFACE
-    external/dxsdk/include
+    external/dxsdk.d3dx/include
 )
 if(CMAKE_SIZEOF_VOID_P EQUAL 8)
     set_target_properties(d3dxof PROPERTIES
-        IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/external/dxsdk/lib/x64/d3dxof.lib
+        IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/external/dxsdk.legacy/lib/x64/d3dxof.lib
     )
 else()
     set_target_properties(d3dxof PROPERTIES
-        IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/external/dxsdk/lib/d3dxof.lib
+        IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/external/dxsdk.legacy/lib/d3dxof.lib
     )
 endif()
 
+# dxerr - TODO: we should find a replacement
+
 add_library(dxerr STATIC IMPORTED GLOBAL)
 target_include_directories(dxerr INTERFACE
-    external/dxsdk/include
+    external/dxsdk.legacy/include
 )
 if(CMAKE_SIZEOF_VOID_P EQUAL 8)
     set_target_properties(dxerr PROPERTIES
-        IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/external/dxsdk/lib/x64/DxErr.lib
+        IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/external/dxsdk.legacy/lib/x64/DxErr.lib
     )
 else()
     set_target_properties(dxerr PROPERTIES
-        IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/external/dxsdk/lib/DxErr.lib
+        IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/external/dxsdk.legacy/lib/DxErr.lib
     )
 endif()
 
