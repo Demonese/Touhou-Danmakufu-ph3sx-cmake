@@ -1,0 +1,4 @@
+Official NuGet package by Microsoft
+
+Name: Microsoft.DXSDK.D3DX
+Link: https://www.nuget.org/packages/Microsoft.DXSDK.D3DX/
