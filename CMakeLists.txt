@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.20)
 project("Touhou-Danmakufu-ph3sx")
 
+set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>$<$<CONFIG:Debug>:DLL>")
+
 include(external/external.cmake)
 
 function(dnh_common_project_config target)
