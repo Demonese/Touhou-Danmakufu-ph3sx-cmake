@@ -15,6 +15,7 @@ set(GcLib_source
     origin/source/GcLib/gstd/File.hpp
     origin/source/GcLib/gstd/FpsController.cpp
     origin/source/GcLib/gstd/FpsController.hpp
+    origin/source/GcLib/gstd/GstdConstant.hpp
     origin/source/GcLib/gstd/GstdLib.hpp
     origin/source/GcLib/gstd/GstdUtility.cpp
     origin/source/GcLib/gstd/GstdUtility.hpp
