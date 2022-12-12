@@ -174,6 +174,8 @@ target_sources(imgui PRIVATE
     ${imgui_sources}
 )
 
+set_target_properties(imgui PROPERTIES FOLDER external)
+
 # helper
 
 add_library(external_helper STATIC
