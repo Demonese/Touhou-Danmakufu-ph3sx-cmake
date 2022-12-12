@@ -36,6 +36,8 @@ set(TouhouDanmakufu_source_DnhConfig
     origin/source/TouhouDanmakufu/Common/DnhConstant.hpp
     origin/source/TouhouDanmakufu/Common/DnhGcLibImpl.cpp
     origin/source/TouhouDanmakufu/Common/DnhGcLibImpl.hpp
+    origin/source/TouhouDanmakufu/Common/DnhConfiguration.hpp
+    origin/source/TouhouDanmakufu/Common/DnhConfiguration.cpp
 )
 source_group(TREE ${CMAKE_SOURCE_DIR}/origin/source FILES ${TouhouDanmakufu_source_DnhConfig})
 

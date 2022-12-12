@@ -125,6 +125,8 @@ set(TouhouDanmakufu_source
     origin/source/TouhouDanmakufu/Common/StgUserExtendScene.cpp
     origin/source/TouhouDanmakufu/Common/StgUserExtendScene.hpp
     origin/source/TouhouDanmakufu/Common/StgObjectBase.hpp
+    origin/source/TouhouDanmakufu/Common/DnhConfiguration.hpp
+    origin/source/TouhouDanmakufu/Common/DnhConfiguration.cpp
 )
 source_group(TREE ${CMAKE_SOURCE_DIR}/origin/source FILES ${TouhouDanmakufu_source})
 
