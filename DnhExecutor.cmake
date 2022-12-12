@@ -57,6 +57,7 @@ set(GcLib_source
     origin/source/GcLib/directx/DxLib.hpp
     origin/source/GcLib/directx/DxObject.cpp
     origin/source/GcLib/directx/DxObject.hpp
+    origin/source/GcLib/directx/DxScriptObjClone.cpp
     origin/source/GcLib/directx/DxScript.cpp
     origin/source/GcLib/directx/DxScript.hpp
     origin/source/GcLib/directx/DxText.cpp
@@ -123,6 +124,7 @@ set(TouhouDanmakufu_source
     origin/source/TouhouDanmakufu/Common/StgSystem.hpp
     origin/source/TouhouDanmakufu/Common/StgUserExtendScene.cpp
     origin/source/TouhouDanmakufu/Common/StgUserExtendScene.hpp
+    origin/source/TouhouDanmakufu/Common/StgObjectBase.hpp
 )
 source_group(TREE ${CMAKE_SOURCE_DIR}/origin/source FILES ${TouhouDanmakufu_source})
 
