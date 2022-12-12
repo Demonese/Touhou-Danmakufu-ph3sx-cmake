@@ -13,3 +13,6 @@
 [submodule "external/kissfft"]
 	path = external/kissfft
 	url = https://github.com/mborgerding/kissfft.git
+[submodule "external/imgui"]
+	path = external/imgui
+	url = https://github.com/ocornut/imgui.git

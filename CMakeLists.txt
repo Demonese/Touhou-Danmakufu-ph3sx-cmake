@@ -69,6 +69,7 @@ target_link_libraries(DnhConfig PUBLIC
     d3dxof
     d3dx9
     d3dcompiler_43
+    imgui
 )
 
 dnh_common_copy_output_file(DnhConfig bin_th_dnh config_ph3sx.exe)
@@ -106,6 +107,7 @@ target_link_libraries(DnhExecutor PUBLIC
     d3dxof
     d3dx9
     d3dcompiler_43
+    imgui
 )
 
 dnh_common_copy_output_file(DnhExecutor bin_th_dnh th_dnh_ph3sx.exe)
@@ -151,6 +153,7 @@ target_link_libraries(FileArchiver PUBLIC
     d3dxof
     d3dx9
     d3dcompiler_43
+    imgui
 )
 
 dnh_common_copy_output_file(FileArchiver bin_ext FileArchiver.exe)

@@ -119,6 +119,60 @@ option(KISSFFT_TOOLS "Build kissfft command-line tools" OFF)
 add_subdirectory(external/kissfft)
 set_target_properties(kissfft PROPERTIES FOLDER external)
 
+# imgui
+
+set(imgui_sources
+    ${CMAKE_CURRENT_LIST_DIR}/imgui/imstb_rectpack.h
+    ${CMAKE_CURRENT_LIST_DIR}/imgui/imstb_textedit.h
+    ${CMAKE_CURRENT_LIST_DIR}/imgui/imstb_truetype.h
+    
+    ${CMAKE_CURRENT_LIST_DIR}/imgui/imconfig.h
+    ${CMAKE_CURRENT_LIST_DIR}/imgui/imgui.h
+    ${CMAKE_CURRENT_LIST_DIR}/imgui/imgui_internal.h
+    ${CMAKE_CURRENT_LIST_DIR}/imgui/imgui.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/imgui/imgui_draw.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/imgui/imgui_tables.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/imgui/imgui_widgets.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/imgui/imgui_demo.cpp
+
+    ${CMAKE_CURRENT_LIST_DIR}/imgui/misc/cpp/imgui_stdlib.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/imgui/misc/cpp/imgui_stdlib.h
+
+    #${CMAKE_CURRENT_LIST_DIR}/imgui/misc/freetype/imgui_freetype.cpp
+    #${CMAKE_CURRENT_LIST_DIR}/imgui/misc/freetype/imgui_freetype.h
+
+    ${CMAKE_CURRENT_LIST_DIR}/imgui/misc/single_file/imgui_single_file.h
+    
+    ${CMAKE_CURRENT_LIST_DIR}/imgui/backends/imgui_impl_win32.h
+    ${CMAKE_CURRENT_LIST_DIR}/imgui/backends/imgui_impl_win32.cpp
+
+    ${CMAKE_CURRENT_LIST_DIR}/imgui/backends/imgui_impl_dx9.h
+    ${CMAKE_CURRENT_LIST_DIR}/imgui/backends/imgui_impl_dx9.cpp
+)
+source_group(TREE ${CMAKE_CURRENT_LIST_DIR} FILES ${imgui_sources})
+
+add_library(imgui STATIC)
+target_compile_definitions(imgui PRIVATE
+    _UNICODE
+    UNICODE
+)
+target_compile_definitions(imgui PUBLIC
+    IMGUI_DISABLE_OBSOLETE_FUNCTIONS
+    IMGUI_DISABLE_OBSOLETE_KEYIO
+    IMGUI_USE_BGRA_PACKED_COLOR # Direct3D 9 only support B8G8R8A8 (0xAARRGGBB)
+    IMGUI_USE_WCHAR32
+)
+target_include_directories(imgui PUBLIC
+    ${CMAKE_CURRENT_LIST_DIR}/imgui
+    ${CMAKE_CURRENT_LIST_DIR}/imgui/misc/cpp
+    ${CMAKE_CURRENT_LIST_DIR}/imgui/misc/freetype
+    ${CMAKE_CURRENT_LIST_DIR}/imgui/misc/single_file
+    ${CMAKE_CURRENT_LIST_DIR}/imgui/backends
+)
+target_sources(imgui PRIVATE
+    ${imgui_sources}
+)
+
 # helper
 
 add_library(external_helper STATIC
