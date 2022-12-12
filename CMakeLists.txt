@@ -3,8 +3,6 @@ project("Touhou-Danmakufu-ph3sx")
 
 set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>$<$<CONFIG:Debug>:DLL>")
 
-include(external/external.cmake)
-
 function(dnh_common_project_config target)
     set_target_properties(${target} PROPERTIES
         C_STANDARD 11
@@ -36,6 +34,8 @@ function(dnh_common_copy_output_file target dir_name file_name)
         COMMAND cmake -E copy $<TARGET_FILE:${target}> ${CMAKE_SOURCE_DIR}/${dir_name}/${file_name}
     )
 endfunction()
+
+include(external/external.cmake)
 
 # DnhConfig
 

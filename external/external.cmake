@@ -152,6 +152,7 @@ set(imgui_sources
 source_group(TREE ${CMAKE_CURRENT_LIST_DIR} FILES ${imgui_sources})
 
 add_library(imgui STATIC)
+dnh_common_project_config(imgui)
 target_compile_definitions(imgui PRIVATE
     _UNICODE
     UNICODE
